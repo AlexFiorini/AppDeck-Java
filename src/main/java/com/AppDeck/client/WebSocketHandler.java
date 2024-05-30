@@ -1,4 +1,4 @@
-package com.JavaMaturita.client;
+package com.AppDeck.client;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.IOException;

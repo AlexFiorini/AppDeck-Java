@@ -1,14 +1,14 @@
-package com.JavaMaturita.client;
+package com.AppDeck.client;
 
 import java.io.IOException;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinUser;
 import com.sun.jna.platform.win32.BaseTSD.ULONG_PTR;
-import com.JavaMaturita.Vinput.Input;
-import com.JavaMaturita.Vinput.KeybdInput;
+import com.AppDeck.Vinput.Input;
+import com.AppDeck.Vinput.KeybdInput;
 
-import static com.JavaMaturita.Vinput.InputConstants.*;
+import static com.AppDeck.Vinput.InputConstants.*;
 
 public class Actions {
 

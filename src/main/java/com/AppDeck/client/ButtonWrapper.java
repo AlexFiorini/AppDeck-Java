@@ -1,4 +1,4 @@
-package com.JavaMaturita.client;
+package com.AppDeck.client;
 
 import java.util.HashMap;
 import java.util.Map;

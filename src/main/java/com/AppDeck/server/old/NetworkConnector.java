@@ -1,4 +1,4 @@
-package com.JavaMaturita.server.old;
+package com.AppDeck.server.old;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;

@@ -1,4 +1,4 @@
-package com.JavaMaturita.Vinput;
+package com.AppDeck.Vinput;
 
 public class Input {
     private MouseInput mouseInput;

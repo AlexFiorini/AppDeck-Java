@@ -1,7 +1,7 @@
-package com.JavaMaturita;
+package com.AppDeck;
 
-import com.JavaMaturita.client.NoLogging;
-import com.JavaMaturita.client.WebSocketHandler;
+import com.AppDeck.client.NoLogging;
+import com.AppDeck.client.WebSocketHandler;
 import spark.Spark;
 
 import java.net.SocketException;

@@ -1,10 +1,8 @@
-package com.JavaMaturita;
+package com.AppDeck;
 
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.Base64;
 import javax.imageio.ImageIO;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

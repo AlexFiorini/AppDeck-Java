@@ -1,4 +1,4 @@
-package com.JavaMaturita;
+package com.AppDeck;
 
 import java.io.IOException;
 import java.nio.file.Files;

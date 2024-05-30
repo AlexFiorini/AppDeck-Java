@@ -5,41 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e7f5f5b-09a5-443d-8b22-4d8eed657250" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/CreateQR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/FileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/HostHTMLPages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/IPFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/MatrixToImageConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/MatrixToImageWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/HardwareInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/Input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/InputConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/KeybdInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/MouseInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/Actions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/ButtonWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/JSONReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/NoLogging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/WebSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/ContentListening.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/License.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/NetworkConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/ServerTCP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/client/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/CreateQR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/CreateQR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/HostHTMLPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/HostHTMLPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/IPFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/IPFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/MatrixToImageConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/MatrixToImageConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/MatrixToImageWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/MatrixToImageWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/HardwareInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Vinput/HardwareInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Vinput/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/InputConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Vinput/InputConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/KeybdInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Vinput/KeybdInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/Vinput/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/Vinput/MouseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/ButtonWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/ButtonWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/JSONReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/NoLogging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/NoLogging.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/client/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/client/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/ContentListening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/server/old/ContentListening.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/License.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/server/old/License.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/NetworkConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/server/old/NetworkConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaMaturita/server/old/ServerTCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AppDeck/server/old/ServerTCP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +43,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AlexFiorini/AppDeck-Java.git",
+    "accountId": "d37b10c9-b88b-47bc-a731-06bdc569500b"
+  }
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -94,11 +87,11 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="ContentListening" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.JavaMaturita.server.old.ContentListening" />
+      <option name="MAIN_CLASS_NAME" value="com.AppDeck.server.old.ContentListening" />
       <module name="JavaServerMaturita" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.JavaMaturita.server.old.*" />
+          <option name="PATTERN" value="com.AppDeck.server.old.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,7 +100,7 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.JavaMaturita.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.AppDeck.Main" />
       <module name="JavaServerMaturita" />
       <method v="2">
         <option name="Make" enabled="true" />

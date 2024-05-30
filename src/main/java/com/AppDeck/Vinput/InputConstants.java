@@ -1,4 +1,4 @@
-package com.JavaMaturita.Vinput;
+package com.AppDeck.Vinput;
 
 public class InputConstants {
     public static final int WHEEL_DELTA = 120;

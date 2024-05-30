@@ -1,4 +1,4 @@
-package com.JavaMaturita.client;
+package com.AppDeck.client;
 
 import org.eclipse.jetty.util.ajax.JSON;
 import org.eclipse.jetty.util.ajax.JSONPojoConvertor;

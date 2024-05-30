@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.JavaMaturita;
+package com.AppDeck;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;

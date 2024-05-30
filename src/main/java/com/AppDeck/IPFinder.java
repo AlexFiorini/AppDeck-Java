@@ -1,4 +1,4 @@
-package com.JavaMaturita;
+package com.AppDeck;
 
 import java.net.*;
 import java.util.Enumeration;

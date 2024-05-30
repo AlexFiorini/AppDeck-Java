@@ -1,4 +1,4 @@
-package com.JavaMaturita.client;
+package com.AppDeck.client;
 
 public class Button {
     private String image;

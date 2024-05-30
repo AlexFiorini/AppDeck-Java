@@ -1,4 +1,4 @@
-package com.JavaMaturita.server.old;
+package com.AppDeck.server.old;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
