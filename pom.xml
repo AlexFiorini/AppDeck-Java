@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>https-websocket-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+	<repositories>
+		<repository>
+			<id>com.teamdev</id>
+			<url>https://europe-maven.pkg.dev/jxbrowser/releases</url>
+		</repository>
+	</repositories>
+    <dependencies>
+	    <!-- Spark dependencies -->
+	    <dependency>
+	        <groupId>com.sparkjava</groupId>
+	        <artifactId>spark-core</artifactId>
+	        <version>2.9.4</version>
+	    </dependency>
+	
+	    <!-- Jetty dependencies -->
+	    <dependency>
+	        <groupId>org.eclipse.jetty.websocket</groupId>
+	        <artifactId>websocket-server</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.eclipse.jetty</groupId>
+	        <artifactId>jetty-server</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.eclipse.jetty</groupId>
+	        <artifactId>jetty-servlet</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.eclipse.jetty</groupId>
+	        <artifactId>jetty-io</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.eclipse.jetty</groupId>
+	        <artifactId>jetty-util</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.eclipse.jetty.websocket</groupId>
+	        <artifactId>websocket-client</artifactId>
+	        <version>9.4.43.v20210629</version>
+	    </dependency>
+	
+	    <!-- SLF4J dependencies -->
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-api</artifactId>
+	        <version>1.7.30</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-reload4j</artifactId>
+	        <version>1.7.35</version>
+	    </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.23.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.melloware/jintellitype -->
+		<dependency>
+			<groupId>com.melloware</groupId>
+			<artifactId>jintellitype</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-cross-platform</artifactId>
+			<version>7.38.2</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-swing</artifactId>
+			<version>7.38.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+	</dependencies>
+</project>
