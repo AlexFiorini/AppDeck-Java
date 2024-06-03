@@ -13,14 +13,9 @@ public class IPFinder {
                 while (addresses.hasMoreElements()) {
                     InetAddress addr = addresses.nextElement();
                     if (addr instanceof Inet4Address) {
-                        if (iface.getDisplayName().contains("wlan") || iface.getDisplayName().contains("eth")) {
-                            if(!iface.getDisplayName().contains("virtual")) {
-                                return addr.getHostAddress();
-                            }
-                        } else if(iface.getDisplayName().contains("Wireless")) {
-                            if(!iface.getDisplayName().contains("virtual")) {
-                                return addr.getHostAddress();
-                            }
+                        if(!iface.getDisplayName().contains("virtual")) {
+                            return addr.getHostAddress();
+                            //Allow wlan, eth, Wireless
                         }
                     }
                 }
