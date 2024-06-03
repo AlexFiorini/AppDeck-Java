@@ -13,10 +13,10 @@ import static com.AppDeck.Vinput.InputConstants.*;
 public class Actions {
 
     public static void startApp(String path) throws IOException {
-        if(!isProcessRunning(path)) {
-            Runtime.getRuntime().exec(path);
-        } else {
+        if(isProcessRunning(path)) {
             maximizeWindow(path);
+        } else {
+            Runtime.getRuntime().exec(path);
         }
 
     }
