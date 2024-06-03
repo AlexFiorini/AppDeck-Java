@@ -22,22 +22,24 @@ public class WebSocketHandler {
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
         Map<String, Button> buttonsMap = buttons.getButtons();
-        for (Map.Entry<String, Button> entry : buttonsMap.entrySet()) {
-            if(Objects.equals(entry.getKey(), message)) {
-                Button button = entry.getValue();
-                if(!button.getPath().isEmpty()) {
-                    try {
-                        Actions.startApp(button.getPath());
-                    } catch (IOException e) {
-                        e.printStackTrace();
+        try {
+            session.getRemote().sendString("The server received the message: " + message);
+        } catch (IOException ignored) {}
+        try {
+            for (Map.Entry<String, Button> entry : buttonsMap.entrySet()) {
+                if(Objects.equals(entry.getKey(), message)) {
+                    Button button = entry.getValue();
+                    if(!button.getPath().isEmpty()) {
+                        try {
+                            Actions.startApp(button.getPath());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Actions.mediaAction(button);
                     }
-                } else {
-                    Actions.mediaAction(button);
                 }
-                try {
-                    session.getRemote().sendString("The server received the message: " + message);
-                } catch (IOException ignored) {}
             }
-        }
+        } catch (Exception ignored){}
     }
 }
