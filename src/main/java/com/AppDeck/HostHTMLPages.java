@@ -31,6 +31,7 @@ public class HostHTMLPages {
         Spark.port(port);
         Spark.staticFiles.location("/src/main/resources");
         Spark.webSocket("/websocket", WebSocketHandler.class);
+        Spark.webSocketIdleTimeoutMillis(0);
 
         Spark.init();
 
