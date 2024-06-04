@@ -2,6 +2,9 @@
 <html>
 	<head>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 		<style>
 			button {
 				width: 90%;
@@ -34,9 +37,7 @@
 				line-height: 1.2;
 				word-wrap: break-word;
 				word-break: break-word;
-				/* Ensure words break to fit within the button */
 				white-space: normal;
-				/* Allow the text to wrap */
 			}
 
 			* {
@@ -47,6 +48,10 @@
 
 			body {
 				background-color: rgba(18, 18, 18, 255);
+				font-family: "Chakra Petch", sans-serif;
+				font-weight: 400;
+				font-style: normal;
+				font-size: 35px;
 			}
 
 			table {
@@ -61,77 +66,122 @@
 			.title {
 				color: white;
 				text-align: center;
+				position: relative;
+				top: -20px;
 			}
 
-            .context-menu { 
-                position: absolute; 
-                text-align: center; 
-                background: lightgray; 
-                border: 1px solid black; 
-            } 
-    
-            .context-menu ul { 
-                padding: 0px; 
-                margin: 0px; 
-                min-width: 150px; 
-                list-style: none; 
-            } 
-    
-            .context-menu ul li { 
-                padding-bottom: 7px; 
-                padding-top: 7px; 
-                border: 1px solid black; 
-            } 
-    
-            .context-menu ul li a { 
-                text-decoration: none; 
-                color: black; 
-            } 
-    
-            .context-menu ul li:hover { 
-                background: darkgray; 
-            } 
+			.context-menu {
+				position: absolute;
+				text-align: center;
+				background: lightgray;
+				border: 1px solid black;
+				font-size: 16px;
+			}
 
-            .change-my-color {
-                fill: white;
-            }
+			.context-menu ul {
+				padding: 0px;
+				margin: 0px;
+				min-width: 150px;
+				list-style: none;
+			}
 
-            #qrcodebutton {
-                cursor: pointer;
-            }
+			.context-menu ul li {
+				padding-bottom: 7px;
+				padding-top: 7px;
+				border: 1px solid black;
+			}
 
-            #qrcodeOverlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                z-index: 9999;
-                text-align: center;
-                color: white;
-            }
+			.context-menu ul li a {
+				text-decoration: none;
+				color: black;
+			}
 
-            #qrcodeOverlay img {
-                margin-top: 10%;
-                max-width: 90%;
-                max-height: 60%;
-            }
+			.context-menu ul li:hover {
+				background: darkgray;
+			}
 
-            #qrcodeOverlay p {
-                font-size: large;
-                margin-top: 20px;
-            }
+			.change-my-color {
+				fill: white;
+			}
+
+			#qrcodebutton {
+				cursor: pointer;
+			}
+
+			#qrcodeOverlay {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.9);
+				z-index: 9999;
+				text-align: center;
+				color: white;
+			}
+
+			#qrcodeOverlay img {
+				margin-top: 10%;
+				max-width: 90%;
+				max-height: 60%;
+			}
+
+			#qrcodeOverlay p {
+				font-size: large;
+				margin-top: 20px;
+			}
+
+			#buttonEditOverlay {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.9);
+				z-index: 10000;
+			}
+
+			#buttonEditOverlay .sidebar {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 30%;
+				height: 100%;
+				background-color: white;
+				color: black;
+				overflow-y: auto;
+			}
+
+			#buttonEditOverlay .random-image {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 70%;
+				height: 100%;
+				background-color: black;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#buttonEditOverlay .random-image img {
+				max-width: 100%;
+				max-height: 100%;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="title">
-            <h1>Appdeck Server</h1>
-            <div style="position: absolute; top: 0; right: 0; padding: 10px;" id="qrcodebutton">
-                <svg xmlns="http://www.w3.org/2000/svg" width="90px" height="90px" viewBox="0 0 24 24" style="fill: white;"><path d="M3 9h6V3H3zm1-5h4v4H4zm1 1h2v2H5zm10 4h6V3h-6zm1-5h4v4h-4zm1 1h2v2h-2zM3 21h6v-6H3zm1-5h4v4H4zm1 1h2v2H5zm15 2h1v2h-2v-3h1zm0-3h1v1h-1zm0-1v1h-1v-1zm-10 2h1v4h-1v-4zm-4-7v2H4v-1H3v-1h3zm4-3h1v1h-1zm3-3v2h-1V3h2v1zm-3 0h1v1h-1zm10 8h1v2h-2v-1h1zm-1-2v1h-2v2h-2v-1h1v-2h3zm-7 4h-1v-1h-1v-1h2v2zm6 2h1v1h-1zm2-5v1h-1v-1zm-9 3v1h-1v-1zm6 5h1v2h-2v-2zm-3 0h1v1h-1v1h-2v-1h1v-1zm0-1v-1h2v1zm0-5h1v3h-1v1h-1v1h-1v-2h-1v-1h3v-1h-1v-1zm-9 0v1H4v-1zm12 4h-1v-1h1zm1-2h-2v-1h2zM8 10h1v1H8v1h1v2H8v-1H7v1H6v-2h1v-2zm3 0V8h3v3h-2v-1h1V9h-1v1zm0-4h1v1h-1zm-1 4h1v1h-1zm3-3V6h1v1z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
-            </div>
-        </div>        
+			<h2>Appdeck Server</h2>
+			<div style="position: absolute; top: 0; right: 0; padding: 10px;" id="qrcodebutton">
+				<svg xmlns="http://www.w3.org/2000/svg" width="90px" height="90px" viewBox="0 0 24 24" style="fill: white;">
+					<path d="M3 9h6V3H3zm1-5h4v4H4zm1 1h2v2H5zm10 4h6V3h-6zm1-5h4v4h-4zm1 1h2v2h-2zM3 21h6v-6H3zm1-5h4v4H4zm1 1h2v2H5zm15 2h1v2h-2v-3h1zm0-3h1v1h-1zm0-1v1h-1v-1zm-10 2h1v4h-1v-4zm-4-7v2H4v-1H3v-1h3zm4-3h1v1h-1zm3-3v2h-1V3h2v1zm-3 0h1v1h-1zm10 8h1v2h-2v-1h1zm-1-2v1h-2v2h-2v-1h1v-2h3zm-7 4h-1v-1h-1v-1h2v2zm6 2h1v1h-1zm2-5v1h-1v-1zm-9 3v1h-1v-1zm6 5h1v2h-2v-2zm-3 0h1v1h-1v1h-2v-1h1v-1zm0-1v-1h2v1zm0-5h1v3h-1v1h-1v1h-1v-2h-1v-1h3v-1h-1v-1zm-9 0v1H4v-1zm12 4h-1v-1h1zm1-2h-2v-1h2zM8 10h1v1H8v1h1v2H8v-1H7v1H6v-2h1v-2zm3 0V8h3v3h-2v-1h1V9h-1v1zm0-4h1v1h-1zm-1 4h1v1h-1zm3-3V6h1v1z" />
+					<path fill="none" d="M0 0h24v24H0z" />
+				</svg>
+			</div>
+		</div>
 		<table>
 			<tr>
 				<td>
@@ -255,10 +305,18 @@
 				</li>
 			</ul>
 		</div>
-        <div id="qrcodeOverlay">
-            <img src="../QRCode.png" alt="QR Code">
-            <p>Scannerizza questo codice QR con il tuo dispositivo mobile per connetterti.</p>
-        </div>        
+		<div id="qrcodeOverlay">
+			<img src="../QRCode.png" alt="QR Code">
+			<p>Scannerizza questo codice QR con il tuo dispositivo mobile per connetterti.</p>
+		</div>
+		<div id="buttonEditOverlay">
+			<div class="sidebar">
+				<p>Sidebar content goes here</p>
+			</div>
+			<div class="random-image">
+				<img id="randomImage" src="" alt="Random Image">
+			</div>
+		</div>
 		<script>
 			var ws = new WebSocket('ws://' + window.location.hostname + ':32424/websocket');
 			ws.onopen = function() {
@@ -274,12 +332,10 @@
 			ws.onerror = function(event) {
 				console.error('WebSocket error:', event);
 			};
-			
 			var buttons = document.querySelectorAll('button');
 			buttons.forEach(function(button) {
 				button.addEventListener('click', function() {
 					if (ws.readyState === WebSocket.OPEN) {
-						// Send the button's ID through the WebSocket connection
 						ws.send(button.id);
 						console.log('Message sent: ' + button.id);
 					} else {
@@ -287,8 +343,7 @@
 					}
 				});
 			});
-			
-            fetch('../config.json').then(response => response.json()).then(data => {
+			fetch('../config.json').then(response => response.json()).then(data => {
 				for (var buttonId in data.buttons) {
 					var divbutton = document.querySelector('#' + buttonId);
 					var buttonText = data.buttons[buttonId].text;
@@ -305,69 +360,65 @@
 				if (elem.requestFullscreen) {
 					elem.requestFullscreen();
 				} else if (elem.webkitRequestFullscreen) {
-					/* Safari */
 					elem.webkitRequestFullscreen();
 				} else if (elem.msRequestFullscreen) {
-					/* IE11 */
 					elem.msRequestFullscreen();
 				}
 			}
-			
-            document.addEventListener('DOMContentLoaded', function() {
+			document.addEventListener('DOMContentLoaded', function() {
 				document.addEventListener('click', function() {
 					var elem = document.documentElement;
 					openFullscreen(elem);
 				});
 			});
+			var a = document.getElementsByTagName('button');
+			for (let i = 0; i < a.length; i++) {
+				var element = a[i];
+				element.onclick = hideRMBMenu;
+				element.oncontextmenu = rightClick;
+			}
 
-            var a = document.getElementsByTagName('button');
-            for(let i = 0; i < a.length; i++){
-                var element = a[i];
-                element.onclick = hideRMBMenu; 
-                element.oncontextmenu = rightClick; 
-            }
-			
-    
-            function hideRMBMenu() { 
-                document.getElementById( 
-                    "contextMenu").style.display = "none" 
-            } 
-    
-            function rightClick(e) { 
-                e.preventDefault(); 
-    
-                if (document.getElementById( 
-                    "contextMenu").style.display == "block") 
-                    hideRMBMenu(); 
-                else { 
-                    var menu = document 
-                        .getElementById("contextMenu") 
-                        
-                    menu.style.display = 'block'; 
-                    menu.style.left = e.pageX + "px"; 
-                    menu.style.top = e.pageY + "px"; 
-                } 
-            }
+			function hideRMBMenu() {
+				document.getElementById("contextMenu").style.display = "none";
+			}
 
-            document.getElementById('modificaBottone').addEventListener('click', function() {
-                hideRMBMenu();
-            });
+			function rightClick(e) {
+				e.preventDefault();
+				if (document.getElementById("contextMenu").style.display == "block") hideRMBMenu();
+				else {
+					var menu = document.getElementById("contextMenu");
+					menu.style.display = 'block';
+					menu.style.left = e.pageX + "px";
+					menu.style.top = e.pageY + "px";
+				}
+			}
+			document.getElementById('modificaBottone').addEventListener('click', function() {
+				hideRMBMenu();
+				openButtonEditOverlay();
+			});
+			document.getElementById('resettaBottone').addEventListener('click', function() {
+				hideRMBMenu();
+			});
+			document.addEventListener('click', function() {
+				hideRMBMenu();
+			});
+			document.getElementById('qrcodebutton').addEventListener('click', function() {
+				document.getElementById('qrcodeOverlay').style.display = 'block';
+			});
+			document.getElementById('qrcodeOverlay').addEventListener('click', function() {
+				document.getElementById('qrcodeOverlay').style.display = 'none';
+			});
 
-            document.getElementById('resettaBottone').addEventListener('click', function() {
-                hideRMBMenu();
-            });
-
-            document.addEventListener('click', function() {
-                hideRMBMenu();
-            });
-
-            document.getElementById('qrcodebutton').addEventListener('click', function() {
-                document.getElementById('qrcodeOverlay').style.display = 'block';
-            });
-
-            document.getElementById('qrcodeOverlay').addEventListener('click', function() {
-                document.getElementById('qrcodeOverlay').style.display = 'none';
-            });
+			function openButtonEditOverlay() {
+				var overlay = document.getElementById('buttonEditOverlay');
+				overlay.style.display = 'block';
+				// Fetch a random image (using a random image API or a predefined list of images)
+				var randomImageUrl = 'https://source.unsplash.com/random/800x600'; // Example URL
+				document.getElementById('randomImage').src = randomImageUrl;
+			}
+			document.getElementById('buttonEditOverlay').addEventListener('click', function() {
+				document.getElementById('buttonEditOverlay').style.display = 'none';
+			});
 		</script>
 	</body>
 </html>
