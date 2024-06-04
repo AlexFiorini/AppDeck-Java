@@ -16,7 +16,8 @@ public class Actions {
         if(isProcessRunning(path)) {
             maximizeWindow(path);
         } else {
-            Runtime.getRuntime().exec(path);
+            ProcessBuilder processBuilder = new ProcessBuilder(path);
+            processBuilder.start();
         }
 
     }
