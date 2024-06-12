@@ -4,10 +4,12 @@ import com.AppDeck.client.NoLogging;
 import com.AppDeck.client.WebSocketHandler;
 import spark.Spark;
 
+import java.io.*;
 import java.net.SocketException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 
 public class HostHTMLPages {
     public static void startHosting() {
@@ -76,6 +78,103 @@ public class HostHTMLPages {
                 e.printStackTrace();
                 res.status(500);
                 return "Error reading the image file";
+            }
+        });
+
+        Spark.post("/save_config.php", (req, res) -> {
+            try {
+                // Get the POST data from the request body
+                String postData = req.body();
+
+                // Path to the PHP interpreter
+                String phpInterpreter = "src/main/resources/php-8.1.29-Win32-vs16-x64/php.exe";
+                // Path to the PHP script
+                String phpScript = "src/main/resources/server/php/save_config.php";
+
+                ProcessBuilder pb = new ProcessBuilder(phpInterpreter, phpScript);
+                // Pass the POST data as a command line argument to the PHP script
+                pb.command().add(postData);
+
+                Process process = pb.start();
+
+                // Capture output from PHP script
+                InputStream inputStream = process.getInputStream();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuilder output = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    output.append(line).append("\n");
+                }
+
+                // Wait for the process to finish
+                int exitCode = process.waitFor();
+
+                // Check if PHP script executed successfully
+                if (exitCode == 0) {
+                    return output.toString();
+                } else {
+                    res.status(500);
+                    return "PHP script execution failed";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                res.status(500);
+                return "Error executing PHP script";
+            }
+        });
+
+        Spark.get("/js/buttonConfig.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/buttonConfig.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
+            }
+        });
+
+        Spark.get("/js/buttonEditOverlay.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/buttonEditOverlay.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
+            }
+        });
+
+        Spark.get("/js/fullscreen.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/fullscreen.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
+            }
+        });
+
+        Spark.get("/js/qrCodeOverlay.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/qrCodeOverlay.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
+            }
+        });
+
+        Spark.get("/js/rightClickMenu.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/rightClickMenu.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
+            }
+        });
+
+        Spark.get("/js/websocket.js", (req, res) -> {
+            try {
+                return FileReader.readJSFile("src/main/resources/server/js/websocket.js");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error reading HTML file";
             }
         });
     }
