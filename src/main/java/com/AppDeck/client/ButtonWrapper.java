@@ -2,6 +2,7 @@ package com.AppDeck.client;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ButtonWrapper {
     private Map<String, Button> buttons;
@@ -30,5 +31,9 @@ public class ButtonWrapper {
         }
         buttonsWrapper.setButtons(buttons);
         return buttonsWrapper;
+    }
+
+    public void updateButtons() {
+        setButtons(getButtonsWrapper(Objects.requireNonNull(JSONReader.getButtonsMap())).getButtons());
     }
 }
