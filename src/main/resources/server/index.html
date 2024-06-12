@@ -322,11 +322,11 @@
 			<div class="sidebar">
 				<p>Scegli il comportamento del bottone</p>
 				<select id="buttonAction">
-					<option value="volumeUp">Volume Up</option>
-					<option value="volumeDown">Volume Down</option>
-					<option value="play">Play</option>
-					<option value="skip">Skip</option>
-					<option value="previous">Previous</option>
+					<option value="VolumeUp">Volume Up</option>
+					<option value="VolumeDown">Volume Down</option>
+					<option value="PlayPause">Play/Pause</option>
+					<option value="Skip">Skip</option>
+					<option value="Previous">Previous</option>
 					<option value="startApp">Start App</option>
 				</select>
 				<br>
@@ -343,123 +343,11 @@
 			</div>
 			<button id="saveButtonEdit">Save</button>
 		</div>
-		<script>
-			var buttonToModify;
-
-			var ws = new WebSocket('ws://' + window.location.hostname + ':32424/websocket');
-			ws.onopen = function() {
-				console.log('WebSocket connection established');
-			};
-			ws.onmessage = function(event) {
-				console.log('Received message: ' + event.data);
-			};
-			ws.onclose = function(event) {
-				console.log('WebSocket connection closed');
-				console.log('Code: ' + event.code + ', Reason: ' + event.reason);
-			};
-			ws.onerror = function(event) {
-				console.error('WebSocket error:', event);
-			};
-			var buttons = document.querySelectorAll('button');
-			buttons.forEach(function(button) {
-				button.addEventListener('click', function() {
-					if (ws.readyState === WebSocket.OPEN) {
-						ws.send(button.id);
-						console.log('Message sent: ' + button.id);
-					} else {
-						console.log('WebSocket is not open.');
-					}
-				});
-			});
-			fetch('../config.json').then(response => response.json()).then(data => {
-				for (var buttonId in data.buttons) {
-					var divbutton = document.querySelector('#' + buttonId);
-					var buttonText = data.buttons[buttonId].text;
-					divbutton.querySelector('.buttontext p').innerText = buttonText;
-					var imageURL = data.buttons[buttonId].image;
-					divbutton.style.backgroundImage = "url('" + imageURL + "')";
-					divbutton.style.backgroundSize = "contain";
-					divbutton.style.backgroundRepeat = "no-repeat";
-					divbutton.style.backgroundPosition = "50%";
-				}
-			}).catch(error => console.error('Error loading JSON:', error));
-
-			function openFullscreen(elem) {
-				if (elem.requestFullscreen) {
-					elem.requestFullscreen();
-				} else if (elem.webkitRequestFullscreen) {
-					elem.webkitRequestFullscreen();
-				} else if (elem.msRequestFullscreen) {
-					elem.msRequestFullscreen();
-				}
-			}
-			document.addEventListener('DOMContentLoaded', function() {
-				document.addEventListener('click', function() {
-					var elem = document.documentElement;
-					openFullscreen(elem);
-				});
-			});
-			var a = document.getElementsByTagName('button');
-			for (let i = 0; i < a.length; i++) {
-				var element = a[i];
-				element.onclick = hideRMBMenu;
-				element.oncontextmenu = function(e) { rightClick(e, a[i]); };
-			}
-
-			function hideRMBMenu() {
-				document.getElementById("contextMenu").style.display = "none";
-			}
-
-			function rightClick(e, a) {
-				e.preventDefault();
-				if (document.getElementById("contextMenu").style.display == "block") hideRMBMenu();
-				else {
-					var menu = document.getElementById("contextMenu");
-					buttonToModify = a;
-					menu.style.display = 'block';
-					menu.style.left = e.pageX + "px";
-					menu.style.top = e.pageY + "px";
-				}
-			}
-			document.getElementById('modificaBottone').addEventListener('click', function() {
-				hideRMBMenu();
-				openButtonEditOverlay();
-			});
-			document.getElementById('resettaBottone').addEventListener('click', function() {
-				hideRMBMenu();
-			});
-			document.addEventListener('click', function() {
-				hideRMBMenu();
-			});
-			document.getElementById('qrcodebutton').addEventListener('click', function() {
-				document.getElementById('qrcodeOverlay').style.display = 'block';
-			});
-			document.getElementById('qrcodeOverlay').addEventListener('click', function() {
-				document.getElementById('qrcodeOverlay').style.display = 'none';
-			});
-			document.getElementById('saveButtonEdit').addEventListener('click', function() {
-				var azione = document.getElementById('buttonAction').value;
-				document.getElementById('buttonEditOverlay').style.display = 'none';
-				/*Salva in una variabile globale il valore del bottone selezionato quando apri la schermata di dialogo, poi rileggilo qui e scovrascrivi i valori presenti in config.json in modo da salvare la configurazione e farla ricevere al client
-				Controlla se il client riceve i messaggi aggiornati e non ha bisogno di aggiornarsi per mostare i valori nuovi (comprese immagini), controlla tempi di caricamento immagini, metti max dimensioni per upload link così eviti tempi di caricamento lunghi*/
-			});
-			document.getElementById('buttonPreviewText').addEventListener('input', function() {
-				var newText = document.getElementById('buttonPreviewText').value;
-				document.getElementById('preview-button-text').innerHTML = newText;
-			});
-			document.getElementById('buttonPreviewImageUrl').addEventListener('input', function() {
-				var linkImage = document.getElementById('buttonPreviewImageUrl').value;
-				var divbutton = document.getElementById('preview-button');
-				var url = "url('" + linkImage + "')";
-				divbutton.style.backgroundImage = url;
-				divbutton.style.backgroundSize = "contain";
-				divbutton.style.backgroundRepeat = "no-repeat";
-				divbutton.style.backgroundPosition = "50%";
-			});
-			function openButtonEditOverlay() {
-				var overlay = document.getElementById('buttonEditOverlay');
-				overlay.style.display = 'block';
-			}			
-		</script>
+		<script src="js/websocket.js"></script>
+		<script src="js/buttonConfig.js"></script>
+		<script src="js/fullscreen.js"></script>
+		<script src="js/rightClickMenu.js"></script>
+		<script src="js/buttonEditOverlay.js"></script>
+		<script src="js/qrCodeOverlay.js"></script>
 	</body>
 </html>
