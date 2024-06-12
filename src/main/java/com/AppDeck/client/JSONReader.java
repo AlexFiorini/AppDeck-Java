@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class JSONReader {
-    public static ButtonWrapper getButtons() {
+    public static Map<String, Map<String, String>> getButtonsMap() {
         try {
             // Read the JSON file as a string
             String jsonContent = new String(Files.readAllBytes(Paths.get("src/main/resources/config.json")));
@@ -25,7 +25,7 @@ public class JSONReader {
             @SuppressWarnings("unchecked")
             Map<String, Map<String, String>> buttonsMap = (Map<String, Map<String, String>>) parsedJson.get("buttons");
 
-            return ButtonWrapper.getButtonsWrapper(buttonsMap);
+            return buttonsMap;
 
         } catch (IOException e) {
             e.printStackTrace();
