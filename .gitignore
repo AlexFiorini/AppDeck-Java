@@ -3,6 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 /src/main/resources/QRCode.png
+/src/main/resources/php-8.1.29-Win32-vs16-x64/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
