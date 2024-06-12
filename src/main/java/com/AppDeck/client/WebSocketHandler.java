@@ -24,12 +24,13 @@ public class WebSocketHandler {
         buttons.updateButtons();
         Map<String, Button> buttonsMap = buttons.getButtons();
         try {
-            session.getRemote().sendString("The server received the message: " + message);
-        } catch (IOException ignored) {}
-        try {
             for (Map.Entry<String, Button> entry : buttonsMap.entrySet()) {
                 if(Objects.equals(entry.getKey(), message)) {
                     Button button = entry.getValue();
+                    try {
+                        session.getRemote().sendString("The server received the message: " + message);
+                        session.getRemote().sendString("Action to do: " + button.getAction());
+                    } catch (IOException ignored) {}
                     if(!button.getPath().isEmpty()) {
                         try {
                             Actions.startApp(button.getPath());
