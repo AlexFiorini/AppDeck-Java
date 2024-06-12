@@ -11,7 +11,7 @@ public class WebSocketHandler {
     @OnWebSocketConnect
     public void onConnect(Session session) {
         System.out.println("WebSocket connected: " + session.getRemoteAddress());
-        buttons = JSONReader.getButtons();
+        buttons = ButtonWrapper.getButtonsWrapper(Objects.requireNonNull(JSONReader.getButtonsMap()));
     }
 
     @OnWebSocketClose
@@ -21,6 +21,7 @@ public class WebSocketHandler {
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
+        buttons.updateButtons();
         Map<String, Button> buttonsMap = buttons.getButtons();
         try {
             session.getRemote().sendString("The server received the message: " + message);
