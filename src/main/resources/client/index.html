@@ -228,74 +228,9 @@
 			window.addEventListener("orientationchange", function() {
 				checkOrientation();
 			});
-
-			var ws = new WebSocket('ws://' + window.location.hostname + ':32424/websocket');
-			ws.onopen = function() {
-				console.log('WebSocket connection established');
-			};
-			ws.onmessage = function(event) {
-				console.log('Received message: ' + event.data);
-			};
-			ws.onclose = function(event) {
-				console.log('WebSocket connection closed');
-				console.log('Code: ' + event.code + ', Reason: ' + event.reason);
-				document.getElementById('ErrorOverlay').style.display = 'block';
-				document.getElementById('testoErrore').innerHTML = "Il pc si è disconnesso :(";
-				document.getElementById("ErrorOverlay").addEventListener("click", function(){
-					location.reload();
-				});
-			};
-			ws.onerror = function(event) {
-				console.error('WebSocket error:', event);
-				document.getElementById('ErrorOverlay').style.display = 'block';
-				document.getElementById('testoErrore').innerHTML = "Si è verificato un errore nella connessione con il tuo PC. Prova a ricaricare la pagina";
-				document.getElementById("ErrorOverlay").addEventListener("click", function(){
-					location.reload();
-				});
-			};
-			// Add event listeners to each button
-			var buttons = document.querySelectorAll('button');
-			buttons.forEach(function(button) {
-				button.addEventListener('click', function() {
-					if (ws.readyState === WebSocket.OPEN) {
-						// Send the button's ID through the WebSocket connection
-						ws.send(button.id);
-						console.log('Message sent: ' + button.id);
-					} else {
-						console.log('WebSocket is not open.');
-					}
-				});
-			});
-			fetch('../config.json').then(response => response.json()).then(data => {
-				for (var buttonId in data.buttons) {
-					var divbutton = document.querySelector('#' + buttonId);
-					var buttonText = data.buttons[buttonId].text;
-					divbutton.querySelector('.buttontext p').innerText = buttonText;
-					var imageURL = data.buttons[buttonId].image;
-					divbutton.style.backgroundImage = "url('" + imageURL + "')";
-					divbutton.style.backgroundSize = "contain";
-					divbutton.style.backgroundRepeat = "no-repeat";
-					divbutton.style.backgroundPosition = "50%";
-				}
-			}).catch(error => console.error('Error loading JSON:', error));
-
-			function openFullscreen(elem) {
-				if (elem.requestFullscreen) {
-					elem.requestFullscreen();
-				} else if (elem.webkitRequestFullscreen) {
-					/* Safari */
-					elem.webkitRequestFullscreen();
-				} else if (elem.msRequestFullscreen) {
-					/* IE11 */
-					elem.msRequestFullscreen();
-				}
-			}
-			document.addEventListener('DOMContentLoaded', function() {
-				document.addEventListener('click', function() {
-					var elem = document.documentElement;
-					openFullscreen(elem);
-				});
-			});
 		</script>
+		<script src="js/websocket.js"></script>
+		<script src="js/buttonConfig.js"></script>
+		<script src="js/fullscreen.js"></script>
 	</body>
 </html>
