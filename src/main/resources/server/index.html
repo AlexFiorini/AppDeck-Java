@@ -154,7 +154,7 @@
 				overflow-y: auto;
 			}
 
-			#buttonEditOverlay .random-image {
+			#buttonEditOverlay .preview-button-div {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -166,10 +166,19 @@
 				align-items: center;
 			}
 
-			#buttonEditOverlay .random-image img {
-				max-width: 100%;
-				max-height: 100%;
+			#preview-button {
+				width: 60%;
+				height: 60%;
 			}
+
+			#saveButtonEdit {
+				width: 20%;
+				height: 10%;
+				position: relative;
+				top: 50%;
+				color: white;
+			}	
+			
 		</style>
 	</head>
 	<body>
@@ -311,13 +320,32 @@
 		</div>
 		<div id="buttonEditOverlay">
 			<div class="sidebar">
-				<p>Sidebar content goes here</p>
+				<p>Scegli il comportamento del bottone</p>
+				<select id="buttonAction">
+					<option value="volumeUp">Volume Up</option>
+					<option value="volumeDown">Volume Down</option>
+					<option value="play">Play</option>
+					<option value="skip">Skip</option>
+					<option value="previous">Previous</option>
+					<option value="startApp">Start App</option>
+				</select>
+				<br>
+				<input type="text" id="buttonPreviewText" placeholder="Button Text">
+				<br>
+				<input type="text" id="buttonPreviewImageUrl" placeholder="Image URL">
 			</div>
-			<div class="random-image">
-				<img id="randomImage" src="" alt="Random Image">
+			<div class="preview-button-div">
+				<button id="preview-button">
+					<div class="buttontext">
+						<p id="preview-button-text"></p>
+					</div>
+				</button>
 			</div>
+			<button id="saveButtonEdit">Save</button>
 		</div>
 		<script>
+			var buttonToModify;
+
 			var ws = new WebSocket('ws://' + window.location.hostname + ':32424/websocket');
 			ws.onopen = function() {
 				console.log('WebSocket connection established');
@@ -375,18 +403,19 @@
 			for (let i = 0; i < a.length; i++) {
 				var element = a[i];
 				element.onclick = hideRMBMenu;
-				element.oncontextmenu = rightClick;
+				element.oncontextmenu = function(e) { rightClick(e, a[i]); };
 			}
 
 			function hideRMBMenu() {
 				document.getElementById("contextMenu").style.display = "none";
 			}
 
-			function rightClick(e) {
+			function rightClick(e, a) {
 				e.preventDefault();
 				if (document.getElementById("contextMenu").style.display == "block") hideRMBMenu();
 				else {
 					var menu = document.getElementById("contextMenu");
+					buttonToModify = a;
 					menu.style.display = 'block';
 					menu.style.left = e.pageX + "px";
 					menu.style.top = e.pageY + "px";
@@ -408,17 +437,29 @@
 			document.getElementById('qrcodeOverlay').addEventListener('click', function() {
 				document.getElementById('qrcodeOverlay').style.display = 'none';
 			});
-
+			document.getElementById('saveButtonEdit').addEventListener('click', function() {
+				var azione = document.getElementById('buttonAction').value;
+				document.getElementById('buttonEditOverlay').style.display = 'none';
+				/*Salva in una variabile globale il valore del bottone selezionato quando apri la schermata di dialogo, poi rileggilo qui e scovrascrivi i valori presenti in config.json in modo da salvare la configurazione e farla ricevere al client
+				Controlla se il client riceve i messaggi aggiornati e non ha bisogno di aggiornarsi per mostare i valori nuovi (comprese immagini), controlla tempi di caricamento immagini, metti max dimensioni per upload link così eviti tempi di caricamento lunghi*/
+			});
+			document.getElementById('buttonPreviewText').addEventListener('input', function() {
+				var newText = document.getElementById('buttonPreviewText').value;
+				document.getElementById('preview-button-text').innerHTML = newText;
+			});
+			document.getElementById('buttonPreviewImageUrl').addEventListener('input', function() {
+				var linkImage = document.getElementById('buttonPreviewImageUrl').value;
+				var divbutton = document.getElementById('preview-button');
+				var url = "url('" + linkImage + "')";
+				divbutton.style.backgroundImage = url;
+				divbutton.style.backgroundSize = "contain";
+				divbutton.style.backgroundRepeat = "no-repeat";
+				divbutton.style.backgroundPosition = "50%";
+			});
 			function openButtonEditOverlay() {
 				var overlay = document.getElementById('buttonEditOverlay');
 				overlay.style.display = 'block';
-				// Fetch a random image (using a random image API or a predefined list of images)
-				var randomImageUrl = 'https://source.unsplash.com/random/800x600'; // Example URL
-				document.getElementById('randomImage').src = randomImageUrl;
-			}
-			document.getElementById('buttonEditOverlay').addEventListener('click', function() {
-				document.getElementById('buttonEditOverlay').style.display = 'none';
-			});
+			}			
 		</script>
 	</body>
 </html>
