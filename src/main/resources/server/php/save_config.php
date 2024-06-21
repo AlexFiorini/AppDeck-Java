@@ -7,7 +7,8 @@ if ($argc < 2) {
 
 $inputJson = $argv[1];
 $inputJson = preg_replace('/:(?=\s*,)/', ':""', $inputJson);
-$inputJson = preg_replace('/(?<!")(\w+)(?!")/', '"$1"', $inputJson);
+$inputJson = preg_replace('/([{,])(\s*)(\w+)(\s*):/', '$1"$3":', $inputJson);
+$inputJson = preg_replace('/:(\s*)([A-Za-z0-9\/\.\-\:_]+)(\s*[,}])/', ':"$2"$3', $inputJson);
 $inputJson = preg_replace('/"text":,/', '"text":"",', $inputJson);
 $inputJson = preg_replace('/"image":,/', '"image":"",', $inputJson);
 $inputJson = preg_replace('/"action":,/', '"action":"",', $inputJson);
