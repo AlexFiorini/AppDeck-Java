@@ -172,12 +172,22 @@
 			}
 
 			#saveButtonEdit {
-				width: 20%;
-				height: 10%;
+				height: 100px;
 				position: relative;
-				top: 50%;
 				color: white;
-			}	
+				width: 200px;
+				margin-top: 90px;
+			}
+
+			.selectorpreview {
+				width: 200px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				height: 30px;
+				border-radius: 5px;
+				box-sizing: border-box;
+    			padding: 5px;
+			}
 			
 		</style>
 	</head>
@@ -320,20 +330,23 @@
 		</div>
 		<div id="buttonEditOverlay">
 			<div class="sidebar">
-				<p style="text-align: center; padding: 10px;">Scegli il comportamento del bottone</p>
-				<select id="buttonAction" style="position: relative; left: 5%; width: 170px;">
-					<option value="VolumeUp">Volume Up</option>
-					<option value="VolumeDown">Volume Down</option>
-					<option value="PlayPause">Play/Pause</option>
-					<option value="Skip">Skip</option>
-					<option value="Previous">Previous</option>
-					<option value="startApp">Start App</option>
-				</select>
-				<br>
-				<input type="text" id="buttonPreviewText" placeholder="Button Text" style="position: relative; left: 5%; width: 170px;">
-				<br>
-				<input type="text" id="buttonPreviewImageUrl" placeholder="Image URL" style="position: relative; left: 5%; width: 170px;">
-			</div>
+				<p style="text-align: center; padding: 15px">Scegli il comportamento del bottone</p>
+				<div style="margin: 0 auto; width: 80%; max-width: 200px;">
+					<select id="buttonAction" class="selectorpreview">
+						<option value="VolumeUp">Volume Su</option>
+						<option value="VolumeDown">Volume Giù</option>
+						<option value="PlayPause">Riproduci/Pausa</option>
+						<option value="Skip">Skip Multimedia</option>
+						<option value="Previous">Precedente Multimedia</option>
+					</select>
+					<br>
+					<input type="text" id="buttonPreviewText" class="selectorpreview" placeholder="Testo">
+					<br>
+					<input type="text" id="buttonPreviewImageUrl" class="selectorpreview" placeholder="URL immagine">
+					<br>
+					<button id="saveButtonEdit">Salva</button>
+				</div>
+			</div>			
 			<div class="preview-button-div">
 				<button id="preview-button">
 					<div class="buttontext">
@@ -341,11 +354,9 @@
 					</div>
 				</button>
 			</div>
-			<button id="saveButtonEdit" style="position: relative; left: 5%">Save</button>
 		</div>
 		<script src="js/websocket.js"></script>
 		<script src="js/buttonConfig.js"></script>
-		<script src="js/fullscreen.js"></script>
 		<script src="js/rightClickMenu.js"></script>
 		<script src="js/buttonEditOverlay.js"></script>
 		<script src="js/qrCodeOverlay.js"></script>
