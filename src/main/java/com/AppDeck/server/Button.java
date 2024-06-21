@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 
 public class Button {
     private String image;

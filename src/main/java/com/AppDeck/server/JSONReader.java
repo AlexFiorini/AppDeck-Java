@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 
 import org.eclipse.jetty.util.ajax.JSON;
 import org.eclipse.jetty.util.ajax.JSONPojoConvertor;

@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 
 import java.util.HashMap;
 import java.util.Map;

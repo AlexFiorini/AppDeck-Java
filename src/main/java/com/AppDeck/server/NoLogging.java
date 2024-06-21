@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 import org.eclipse.jetty.util.log.Logger;
 
 public class NoLogging implements Logger {

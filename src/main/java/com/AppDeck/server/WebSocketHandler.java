@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.IOException;

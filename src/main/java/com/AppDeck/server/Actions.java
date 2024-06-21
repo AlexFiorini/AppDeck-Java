@@ -1,4 +1,4 @@
-package com.AppDeck.client;
+package com.AppDeck.server;
 
 import java.io.IOException;
 import com.sun.jna.platform.win32.User32;

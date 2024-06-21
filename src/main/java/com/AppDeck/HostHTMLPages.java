@@ -1,11 +1,14 @@
 package com.AppDeck;
 
-import com.AppDeck.client.NoLogging;
-import com.AppDeck.client.WebSocketHandler;
+import com.AppDeck.server.NoLogging;
+import com.AppDeck.server.WebSocketHandler;
 import spark.Spark;
 
+import java.awt.*;
 import java.io.*;
 import java.net.SocketException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,6 +39,14 @@ public class HostHTMLPages {
         Spark.webSocketIdleTimeoutMillis(0);
 
         Spark.init();
+
+        Desktop desktop = java.awt.Desktop.getDesktop();
+        try {
+            URI oURL = new URI("http://"+IP+":"+port+"/dashboard.html");
+            desktop.browse(oURL);
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
 
         Spark.get("/", (req, res) -> {
             try {

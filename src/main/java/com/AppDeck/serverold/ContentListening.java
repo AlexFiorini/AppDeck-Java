@@ -1,4 +1,4 @@
-package com.AppDeck.server.old;
+package com.AppDeck.serverold;
 
 import com.teamdev.jxbrowser.browser.Browser;
 import com.teamdev.jxbrowser.browser.callback.InjectJsCallback;
