@@ -41,8 +41,8 @@ document.getElementById('saveButtonEdit').addEventListener('click', function() {
     // Hide the button edit overlay after saving
     document.getElementById('buttonEditOverlay').style.display = 'none';
 });
-document.getElementById('buttonPreviewText').addEventListener('input', updateTextPreview());
-document.getElementById('buttonPreviewImageUrl').addEventListener('input', updateImagePrewiew());
+document.getElementById('buttonPreviewText').addEventListener('input', updateTextPreview);
+document.getElementById('buttonPreviewImageUrl').addEventListener('input', updateImagePrewiew);
 function updateTextPreview() {
     var newText = document.getElementById('buttonPreviewText').value;
     document.getElementById('preview-button-text').innerHTML = newText;
